@@ -1,4 +1,4 @@
-.StackLayout {
+/* .StackLayout {
  
   justify-content: center;
   display: flex;
@@ -11,7 +11,7 @@ GridLayout{
 }
 
 .cardStyle{
-  /* background-color: blue; */
+  /* background-color: blue; 
   justify-content: space-between;
   display: flex;
   flex-direction: column;
@@ -56,4 +56,9 @@ Image{
   font-size: 15;
   text-align: left;
   margin-bottom: 10;
+} */
+
+.itemTemplate{
+  margin-bottom: 20rem;
+  padding: 50;
 }

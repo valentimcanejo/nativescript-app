@@ -1,19 +1,42 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo">
-
-  <ActionBar title="Carrinho" />
-  <StackLayout className="StackLayout" stretchLastChild="false">
-    <GridLayout stretchLastChild="false" columns="auto, auto, auto" rows="auto, auto, auto">
-
-      <FlexboxLayout className="cardStyle" row="0" col="0">
-        <Image row="0" margin="0" stretch="aspectFill"
-          src="https://proxy.olhardigital.com.br/wp-content/uploads/2022/12/Terra-1024x576.jpg" />
-        <FlexboxLayout className="titleStyle">
-          <label text="Terra" className="cardTitle" />
-          <label text="Planeta terra bonita" className="cardSubtitle" />
-        </FlexboxLayout>
-      </FlexboxLayout>
-
-    </GridLayout>
-
+  <ActionBar title="Feed" />
+  <StackLayout height="100%">
+    <ListView
+      height="100%"
+      separatorColor="transparent"
+      items="{{ planets }}"
+      itemTap="{{ onFlickTap }}"
+    >
+      <ListView.itemTemplate>
+        <!-- Add this 👇 -->
+        <GridLayout
+          height="280"
+          borderRadius="10"
+          class="bg-secondary"
+          rows="*, auto, auto"
+          columns="*"
+          margin="5 10"
+          padding="0"
+        >
+          <Image row="0" margin="0" stretch="aspectFill" src="{{ imageUrl }}" />
+          <Label
+            row="1"
+            margin="10 10 0 10"
+            fontWeight="700"
+            class="text-primary"
+            fontSize="18"
+            text="{{ name }}"
+          />
+          <Label
+            row="2"
+            margin="0 10 10 10"
+            class="text-secondary"
+            fontSize="14"
+            textWrap="true"
+            text="{{ description }}"
+          />
+        </GridLayout>
+      </ListView.itemTemplate>
+    </ListView>
   </StackLayout>
 </Page>
