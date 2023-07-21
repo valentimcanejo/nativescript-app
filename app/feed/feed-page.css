@@ -1,0 +1,59 @@
+.StackLayout {
+ 
+  justify-content: center;
+  display: flex;
+}
+
+GridLayout{
+  margin: 20rem;
+  gap: 20px;
+  
+}
+
+.cardStyle{
+  /* background-color: blue; */
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20rem;
+  
+  width: 100%;
+  border-radius: 20%;
+  align-items: center;
+  height: 30%;
+
+}
+
+Image{
+  height: 500px;
+  width: 100%;
+}
+
+.titleStyle{
+ 
+  flex-direction: column;
+  
+ width: 100%;
+ height: 100;
+ background-color: #041833;
+ border-bottom-left-radius: 10;
+ border-bottom-right-radius: 10;
+      
+ padding-right: 20;
+ padding-left: 20;
+}
+
+.cardTitle {
+  font: bold;
+   color: #D9D9D9; 
+  font-size: 20;
+  text-align: center;
+  text-align: left;
+}
+
+.cardSubtitle {
+   color: #D9D9D9; 
+  font-size: 15;
+  text-align: left;
+  margin-bottom: 10;
+}

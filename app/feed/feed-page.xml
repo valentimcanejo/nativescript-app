@@ -1,0 +1,19 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo">
+
+  <ActionBar title="Carrinho" />
+  <StackLayout className="StackLayout" stretchLastChild="false">
+    <GridLayout stretchLastChild="false" columns="auto, auto, auto" rows="auto, auto, auto">
+
+      <FlexboxLayout className="cardStyle" row="0" col="0">
+        <Image row="0" margin="0" stretch="aspectFill"
+          src="https://proxy.olhardigital.com.br/wp-content/uploads/2022/12/Terra-1024x576.jpg" />
+        <FlexboxLayout className="titleStyle">
+          <label text="Terra" className="cardTitle" />
+          <label text="Planeta terra bonita" className="cardSubtitle" />
+        </FlexboxLayout>
+      </FlexboxLayout>
+
+    </GridLayout>
+
+  </StackLayout>
+</Page>
