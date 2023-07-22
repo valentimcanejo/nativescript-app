@@ -1,0 +1,29 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo"
+    loaded="checkLogin">
+    <!-- Add this 👇 -->
+    <ActionBar title="Login">
+
+
+    </ActionBar>
+
+    <!-- Add this 👇 -->
+    <ScrollView>
+        <StackLayout orientation="vertical" padding="20">
+            <Label text="Email:" fontSize="18" />
+            <TextField width="100%" fontSize="15" marginBottom="20" hint="Digite seu email"
+                id="email" />
+
+
+            <StackLayout padding="10 20">
+
+                <StackLayout>
+                    <Button text="Login" tap="{{ login }}" backgroundColor="green"
+                        color="white"
+                        width="100%" />
+
+                </StackLayout>
+
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</Page>

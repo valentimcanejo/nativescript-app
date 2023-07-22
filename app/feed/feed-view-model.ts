@@ -1,4 +1,5 @@
 import {
+  ApplicationSettings,
   Frame,
   ItemEventData,
   Observable,
@@ -67,6 +68,18 @@ export class HomeViewModel extends ObservableArray<any> {
   onAddButtonTap(args: any): void {
     Frame.topmost().navigate({
       moduleName: "create/create-page",
+      context: { planetId: 1 },
+    });
+  }
+
+  onBackTap(args: any): void {
+    Frame.goBack();
+  }
+
+  logout(args: any): void {
+    ApplicationSettings.remove("email");
+    Frame.topmost().navigate({
+      moduleName: "login/login-page",
       context: { planetId: 1 },
     });
   }
