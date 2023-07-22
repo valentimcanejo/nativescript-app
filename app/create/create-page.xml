@@ -10,17 +10,15 @@
             <!-- Campo de entrada de texto -->
             <Label text="Nome:" fontSize="18" />
             <TextField width="100%" fontSize="15" marginBottom="20" hint="Digite seu nome"
-                id="nameField" />
+                id="nome" />
             <Label text="Descrição:" fontSize="18" />
-            <TextField width="100%" fontSize="15" marginBottom="20" hint="Digite seu nome"
-                id="nameField" />
-            <Label text="Nome:" fontSize="18" />
-            <TextField width="100%" fontSize="15" marginBottom="20" hint="Digite seu nome"
-                id="nameField" />
-            <Label text="Nome:" fontSize="18" />
-            <TextField width="100%" fontSize="15" marginBottom="20" hint="Digite seu nome"
-                id="nameField" />
+            <TextField width="100%" fontSize="15" marginBottom="20" hint="Digite a descrição"
+                id="descricao" />
+            <Label text="Imagem:" fontSize="18" />
+            <TextField width="100%" fontSize="15" marginBottom="20" hint="Digite a Imagem"
+                id="imagem" />
 
+            <Button text="Selecionar Imagem" tap="{{ onImagePickerTap }}" />
             <!-- Botão de envio -->
             <Button text="Enviar" tap="{{ submitForm }}" backgroundColor="green" color="white"
                 width="100%" />

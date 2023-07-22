@@ -1,21 +1,95 @@
-import { Frame, Observable } from '@nativescript/core'
-import { PlanetService } from '~/services/planets.service'
+import {
+  Dialogs,
+  Frame,
+  Http,
+  HttpResponse,
+  ImageSource,
+  ItemEventData,
+  Observable,
+} from "@nativescript/core";
+import { PlanetService } from "~/services/planets.service";
+import { HomeViewModel } from "~/feed/feed-view-model";
+import * as imagePickerPlugin from "@nativescript/imagepicker";
 
 export class CreateViewModel extends Observable {
-    private _planet: any
-  
-    // the passed in context object during the navigation will be here
-    constructor(private _context: { planetId: number }) {
-      super()
-  
-      this._planet = PlanetService.getInstance().getPlanetByidNum(this._context.planetId)
+  private selectedImage: imagePickerPlugin.ImagePickerSelection;
+  constructor() {
+    super();
+  }
+
+  onBackTap(args: any): void {
+    Frame.goBack();
+  }
+
+  async onImagePickerTap() {
+    let imagePickerObj: imagePickerPlugin.ImagePicker =
+      imagePickerPlugin.create({
+        mode: "single",
+      });
+
+    try {
+      await imagePickerObj.authorize();
+      const selection = await imagePickerObj.present();
+      if (selection.length > 0) {
+        this.selectedImage = selection[0];
+      }
+    } catch (e) {
+      console.log("Error selecting image:", e);
     }
-  
-    get planet(): any {
-      return this._planet
+  }
+
+  async submitForm(args: any): Promise<void> {
+    const page = args.object.page;
+
+    const campoNome = page.getViewById("nome");
+    const campoDescricao = page.getViewById("descricao");
+    const campoImagem = page.getViewById("imagem");
+
+    const nome = campoNome.text;
+    const descricao = campoDescricao.text;
+    const imagem = campoImagem.text;
+
+    const imageSource = await ImageSource.fromAsset(this.selectedImage.asset);
+    const base64 = imageSource.toBase64String("png");
+    console.log(base64);
+
+    if (nome === "" || descricao === "") {
+      Dialogs.alert({
+        title: "Erro",
+        message: "Dados não fornecidos",
+        okButtonText: "ok",
+      });
+      return;
     }
 
-    onBackTap(args: any): void {
-      Frame.goBack();
+    const tamanhoArray = PlanetService.getInstance().getPlanetsLength();
+
+    try {
+      const response = await Http.request({
+        url: "https://ifrn-ddm.vercel.app/api/items",
+        method: "POST",
+
+        headers: { "Content-Type": "application/json" },
+        content: JSON.stringify({
+          name: nome,
+          description: descricao,
+          imageUrl: base64,
+          idNum: tamanhoArray > 0 ? tamanhoArray : 0,
+        }),
+      });
+
+      const result = response.content.toJSON();
+
+      const planetService = HomeViewModel.getInstance();
+      await planetService.fetchPlanets();
+
+      const currentPage = Frame.topmost().currentPage;
+
+      Frame.topmost().navigate({
+        moduleName: "feed/feed-page",
+      });
+    } catch (e) {
+      console.log(e);
+    }
   }
 }

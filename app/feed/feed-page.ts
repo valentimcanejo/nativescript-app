@@ -1,11 +1,11 @@
-import { NavigatedData, Page } from '@nativescript/core'
-import { HomeViewModel } from './feed-view-model'
+import { NavigatedData, Page } from "@nativescript/core";
+import { HomeViewModel } from "./feed-view-model";
 
 export function navigatingTo(args: NavigatedData): void {
   if (args.isBackNavigation) {
-    return
+    return;
   }
 
-  const page = <Page>args.object
-  page.bindingContext = new HomeViewModel()
+  const page = <Page>args.object;
+  page.bindingContext = new HomeViewModel();
 }

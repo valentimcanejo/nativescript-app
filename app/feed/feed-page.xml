@@ -1,4 +1,5 @@
-<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo">
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="onPageLoaded"
+  navigatingTo="navigatingTo">
   <ActionBar title="Feed" />
   <GridLayout rows="*, auto" height="100%" className="gridL">
     <StackLayout height="100%">
