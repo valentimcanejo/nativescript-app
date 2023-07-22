@@ -1,4 +1,4 @@
-import { Http, Observable } from "@nativescript/core";
+import { Http, ImageSource, Observable } from "@nativescript/core";
 
 export class PlanetService extends Observable {
   private planets: any[] = [];
@@ -13,8 +13,11 @@ export class PlanetService extends Observable {
     const resultado: any = await Http.getJSON(
       "https://ifrn-ddm.vercel.app/api/items",
     );
-    //const imagemConvertida = resultado.data.imageUrl
-    //const res = {...resultado.data};
+    const imagemConvertida = resultado.data.imageUrl;
+    const imageSource = await ImageSource.fromData(imagemConvertida);
+    console.log(imageSource);
+
+    const res = { ...resultado.data };
     this.planets = resultado.data;
 
     return this.planets;

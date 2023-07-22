@@ -23,8 +23,6 @@ export class HomeViewModel extends ObservableArray<any> {
 
   // This will be used as the data source of our ListView
   get planets(): any {
-    console.log(this._planets[this._planets.length - 1]);
-
     return this._planets;
   }
 

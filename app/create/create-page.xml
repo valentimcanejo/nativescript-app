@@ -1,6 +1,6 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo">
 
-    <ActionBar title="Formulário">
+    <ActionBar title="Criar">
         <NavigationButton text="Go Back" tap="{{ onBackTap }}" android.systemIcon="ic_menu_back"></NavigationButton>
 
     </ActionBar>
@@ -14,9 +14,7 @@
             <Label text="Descrição:" fontSize="18" />
             <TextField width="100%" fontSize="15" marginBottom="20" hint="Digite a descrição"
                 id="descricao" />
-            <Label text="Imagem:" fontSize="18" />
-            <TextField width="100%" fontSize="15" marginBottom="20" hint="Digite a Imagem"
-                id="imagem" />
+
 
             <Button text="Selecionar Imagem" tap="{{ onImagePickerTap }}" />
             <!-- Botão de envio -->

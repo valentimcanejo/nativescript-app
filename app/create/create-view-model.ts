@@ -43,15 +43,12 @@ export class CreateViewModel extends Observable {
 
     const campoNome = page.getViewById("nome");
     const campoDescricao = page.getViewById("descricao");
-    const campoImagem = page.getViewById("imagem");
 
     const nome = campoNome.text;
     const descricao = campoDescricao.text;
-    const imagem = campoImagem.text;
 
     const imageSource = await ImageSource.fromAsset(this.selectedImage.asset);
     const base64 = imageSource.toBase64String("png");
-    console.log(base64);
 
     if (nome === "" || descricao === "") {
       Dialogs.alert({
