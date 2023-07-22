@@ -1,0 +1,16 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo">
+    <ActionBar title="Formulário" />
+    <ScrollView>
+        <StackLayout orientation="vertical" padding="20">
+
+            <!-- Campo de entrada de texto -->
+            <Label text="Nome:" />
+            <TextField hint="Digite seu nome" id="nameField" />
+
+
+            <!-- Botão de envio -->
+            <Button text="Enviar" tap="{{ submitForm }}" />
+
+        </StackLayout>
+    </ScrollView>
+</Page>

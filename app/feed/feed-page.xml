@@ -1,42 +1,58 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo">
   <ActionBar title="Feed" />
-  <StackLayout height="100%">
-    <ListView
-      height="100%"
-      separatorColor="transparent"
-      items="{{ planets }}"
-      itemTap="{{ onFlickTap }}"
-    >
-      <ListView.itemTemplate>
-        <!-- Add this 👇 -->
-        <GridLayout
-          height="280"
-          borderRadius="10"
-          class="bg-secondary"
-          rows="*, auto, auto"
-          columns="*"
-          margin="5 10"
-          padding="0"
-        >
-          <Image row="0" margin="0" stretch="aspectFill" src="{{ imageUrl }}" />
-          <Label
-            row="1"
-            margin="10 10 0 10"
-            fontWeight="700"
-            class="text-primary"
-            fontSize="18"
-            text="{{ name }}"
-          />
-          <Label
-            row="2"
-            margin="0 10 10 10"
-            class="text-secondary"
-            fontSize="14"
-            textWrap="true"
-            text="{{ description }}"
-          />
-        </GridLayout>
-      </ListView.itemTemplate>
-    </ListView>
-  </StackLayout>
+  <GridLayout rows="*, auto" height="100%" className="gridL">
+    <StackLayout height="100%">
+      <ListView
+        height="100%"
+        separatorColor="transparent"
+        items="{{ planets }}"
+        itemTap="{{ onFlickTap }}"
+      >
+        <ListView.itemTemplate>
+          <!-- Add this 👇 -->
+          <GridLayout
+            height="280"
+            borderRadius="10"
+            class="bg-secondary"
+            rows="*, auto, auto"
+            columns="*"
+            margin="5 10"
+            padding="0"
+          >
+            <Image row="0" margin="0" stretch="aspectFill" src="{{ imageUrl }}" />
+            <Label
+              row="1"
+              margin="10 10 0 10"
+              fontWeight="700"
+              class="text-primary"
+              fontSize="18"
+              text="{{ name }}"
+            />
+            <Label
+              row="2"
+              margin="0 10 10 10"
+              class="text-secondary"
+              fontSize="14"
+              textWrap="true"
+              text="{{ description }}"
+            />
+          </GridLayout>
+        </ListView.itemTemplate>
+      </ListView>
+
+    </StackLayout>
+    <Button
+      tap="{{ onAddButtonTap }}"
+      text="+"
+      className="floatButton"
+      width="60"
+      height="60"
+      borderRadius="30"
+      color="white"
+      horizontalAlignment="right"
+      verticalAlignment="bottom"
+      marginRight="20"
+      marginBottom="20"
+    />
+  </GridLayout>
 </Page>

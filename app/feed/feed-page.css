@@ -62,3 +62,11 @@ Image{
   margin-bottom: 20rem;
   padding: 50;
 }
+
+
+
+.floatButton {
+ color: white;
+ font-size: 25;
+ background-color: green;
+}
