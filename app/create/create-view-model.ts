@@ -8,7 +8,7 @@ export class CreateViewModel extends Observable {
     constructor(private _context: { planetId: number }) {
       super()
   
-      this._planet = PlanetService.getInstance().getPlanetById(this._context.planetId)
+      this._planet = PlanetService.getInstance().getPlanetByidNum(this._context.planetId)
     }
   
     get planet(): any {

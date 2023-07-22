@@ -1,15 +1,29 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo">
-    <ActionBar title="Formulário" />
+
+    <ActionBar title="Formulário">
+        <NavigationButton text="Go Back" tap="{{ onBackTap }}" android.systemIcon="ic_menu_back"></NavigationButton>
+
+    </ActionBar>
     <ScrollView>
         <StackLayout orientation="vertical" padding="20">
 
             <!-- Campo de entrada de texto -->
-            <Label text="Nome:" />
-            <TextField hint="Digite seu nome" id="nameField" />
-
+            <Label text="Nome:" fontSize="18" />
+            <TextField width="100%" fontSize="15" marginBottom="20" hint="Digite seu nome"
+                id="nameField" />
+            <Label text="Descrição:" fontSize="18" />
+            <TextField width="100%" fontSize="15" marginBottom="20" hint="Digite seu nome"
+                id="nameField" />
+            <Label text="Nome:" fontSize="18" />
+            <TextField width="100%" fontSize="15" marginBottom="20" hint="Digite seu nome"
+                id="nameField" />
+            <Label text="Nome:" fontSize="18" />
+            <TextField width="100%" fontSize="15" marginBottom="20" hint="Digite seu nome"
+                id="nameField" />
 
             <!-- Botão de envio -->
-            <Button text="Enviar" tap="{{ submitForm }}" />
+            <Button text="Enviar" tap="{{ submitForm }}" backgroundColor="green" color="white"
+                width="100%" />
 
         </StackLayout>
     </ScrollView>
