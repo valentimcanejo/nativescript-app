@@ -2,7 +2,7 @@ import { Frame, Observable } from "@nativescript/core";
 import { PlanetService } from "~/services/planets.service";
 import * as appSettings from "@nativescript/core/application-settings";
 
-export class LoginViewModel extends Observable {
+export class CadastroViewModel extends Observable {
   constructor() {
     super();
   }
@@ -11,26 +11,17 @@ export class LoginViewModel extends Observable {
     Frame.goBack();
   }
 
-  login(args: any): void {
+  cadastrar(args: any): void {
     const page = args.object.page;
 
     const campoEmail = page.getViewById("email");
 
     const email = campoEmail.text;
 
-    const emailCadastrado = appSettings.getString("email");
-    if (email === emailCadastrado) {
-      Frame.topmost().navigate({
-        moduleName: "feed/feed-page",
-      });
-    } else {
-      alert("Dados incorretos");
-    }
-  }
+    appSettings.setString("email", email);
 
-  cadastrar(args: any): void {
     Frame.topmost().navigate({
-      moduleName: "cadastro/cadastro-page",
+      moduleName: "login/login-page",
     });
   }
 }

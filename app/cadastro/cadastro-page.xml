@@ -1,13 +1,9 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo"
     loaded="checkLogin">
     <!-- Add this 👇 -->
-    <ActionBar title="Login">
+    <ActionBar title="Cadastro">
+        <NavigationButton text="Go Back" tap="{{ onBackTap }}" android.systemIcon="ic_menu_back"></NavigationButton>
 
-        <ActionItem
-            tap="{{ cadastrar }} "
-            ios.systemIcon="9" ios.position="left"
-            android.systemIcon="ic_logout"
-            android.position="actionBar"></ActionItem>
     </ActionBar>
 
     <!-- Add this 👇 -->
@@ -21,12 +17,10 @@
             <StackLayout padding="10 20">
 
                 <StackLayout>
-                    <Button text="Login" tap="{{ login }}" backgroundColor="green"
+                    <Button text="Cadastrar-se" tap="{{ cadastrar }}" backgroundColor="green"
                         color="white"
                         width="100%" />
-                    <Button text="Cadastrar-se" tap="{{ cadastrar }}" backgroundColor="blue"
-                        color="white"
-                        width="100%" />
+
 
                 </StackLayout>
 
