@@ -12,9 +12,10 @@ export function navigatingTo(args: NavigatedData): void {
 }
 
 export function checkLogin(args: any): any {
-  const existe = appSettings.getString("email");
-  console.log(existe);
-  if (existe === "valentim.canejo@hotmail.com") {
+  const existeUsuario = appSettings.getString("email");
+  console.log(existeUsuario);
+
+  if (existeUsuario) {
     Frame.topmost().navigate({
       moduleName: "feed/feed-page",
     });

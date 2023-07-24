@@ -62,7 +62,7 @@ export class CreateViewModel extends Observable {
     const tamanhoArray = PlanetService.getInstance().getPlanetsLength();
 
     try {
-      const response = await Http.request({
+      await Http.request({
         url: "https://ifrn-ddm.vercel.app/api/items",
         method: "POST",
 
@@ -75,12 +75,8 @@ export class CreateViewModel extends Observable {
         }),
       });
 
-      const result = response.content.toJSON();
-
       const planetService = HomeViewModel.getInstance();
       await planetService.fetchPlanets();
-
-      const currentPage = Frame.topmost().currentPage;
 
       Frame.topmost().navigate({
         moduleName: "feed/feed-page",

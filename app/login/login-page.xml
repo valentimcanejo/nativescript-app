@@ -1,16 +1,17 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo"
     loaded="checkLogin">
-    <!-- Add this 👇 -->
+
     <ActionBar title="Login">
 
         <ActionItem
             tap="{{ cadastrar }} "
             ios.systemIcon="9" ios.position="left"
             android.systemIcon="ic_logout"
-            android.position="actionBar"></ActionItem>
+            android.position="actionBar">
+        </ActionItem>
     </ActionBar>
 
-    <!-- Add this 👇 -->
+
     <ScrollView>
         <StackLayout orientation="vertical" padding="20">
             <Label text="Email:" fontSize="18" />

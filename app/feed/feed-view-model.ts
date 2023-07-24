@@ -12,7 +12,6 @@ export class HomeViewModel extends ObservableArray<any> {
 
   constructor() {
     super();
-
     this.fetchPlanets();
   }
 
@@ -22,7 +21,6 @@ export class HomeViewModel extends ObservableArray<any> {
 
   private static _instance: HomeViewModel = new HomeViewModel();
 
-  // This will be used as the data source of our ListView
   get planets(): any {
     return this._planets;
   }
@@ -40,17 +38,13 @@ export class HomeViewModel extends ObservableArray<any> {
 
   createPlanet(newPlanetData: any): any {
     try {
-      // Call the API to create a new planet with the provided data
       const createdPlanet =
         PlanetService.getInstance().createPlanet(newPlanetData);
 
-      // Update the local _planets array with the new planet
       this._planets.push(createdPlanet);
 
-      // Notify the UI about the updated planets array
       this.notifyPropertyChange("planets", this._planets);
 
-      // Return the updated planets array
       return this._planets;
     } catch (error) {
       console.log(error);
@@ -58,7 +52,7 @@ export class HomeViewModel extends ObservableArray<any> {
     }
   }
 
-  onFlickTap(args: ItemEventData): void {
+  verDetalhes(args: ItemEventData): void {
     Frame.topmost().navigate({
       moduleName: "details/details-page",
       context: { planetId: this._planets[args.index].idNum },

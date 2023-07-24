@@ -1,0 +1,4 @@
+<StackLayout class="button" tap="onTap">
+    <Label text="add" class="icon" />
+    <Label text="Adicionar" class="text" />
+</StackLayout>

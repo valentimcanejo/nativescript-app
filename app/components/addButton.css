@@ -1,0 +1,20 @@
+/* custom-button.css */
+
+/* Estilo para o ícone do botão */
+.icon {
+    font-family: 'MaterialIcons';
+    font-size: 24;
+  }
+  
+  /* Estilo para o texto do botão */
+  .text {
+    font-size: 16;
+  }
+  
+  /* Estilo para o botão em si */
+  .button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10;
+    border-radius: 5;
+  }

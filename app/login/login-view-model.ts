@@ -18,8 +18,8 @@ export class LoginViewModel extends Observable {
 
     const email = campoEmail.text;
 
-    const emailCadastrado = appSettings.getString("email");
-    if (email === emailCadastrado) {
+    if (email === "admin@gmail.com") {
+      appSettings.setString("email", email);
       Frame.topmost().navigate({
         moduleName: "feed/feed-page",
       });
