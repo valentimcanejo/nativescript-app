@@ -7,6 +7,7 @@
     "@nativescript/core": "~8.5.0",
     "@nativescript/imagepicker": "^2.0.2",
     "@nativescript/theme": "~3.0.2",
+    "nativescript-sqlite": "^2.8.6",
     "tns-core-modules": "^6.5.27"
   },
   "devDependencies": {

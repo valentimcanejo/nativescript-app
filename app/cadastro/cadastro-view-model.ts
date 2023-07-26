@@ -1,6 +1,7 @@
 import { Frame, Observable } from "@nativescript/core";
 import { PlanetService } from "~/services/planets.service";
 import * as appSettings from "@nativescript/core/application-settings";
+import { database } from "~/login/login-page";
 
 export class CadastroViewModel extends Observable {
   constructor() {
@@ -18,7 +19,14 @@ export class CadastroViewModel extends Observable {
 
     const email = campoEmail.text;
 
-    appSettings.setString("email", email);
+    if (email !== "") {
+      database().execSQL(
+        `
+  INSERT INTO users (email) VALUES (?)
+`,
+        [email],
+      );
+    }
 
     Frame.topmost().navigate({
       moduleName: "login/login-page",

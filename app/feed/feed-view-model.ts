@@ -71,7 +71,7 @@ export class HomeViewModel extends ObservableArray<any> {
   }
 
   logout(args: any): void {
-    ApplicationSettings.remove("email");
+    ApplicationSettings.remove("logado");
     Frame.topmost().navigate({
       moduleName: "login/login-page",
       context: { planetId: 1 },
